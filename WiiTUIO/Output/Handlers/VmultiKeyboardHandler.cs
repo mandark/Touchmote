@@ -34,6 +34,13 @@ namespace WiiTUIO.Output.Handlers
             this.inputSimulator = new InputSimulator();
         }
 
+
+        public bool reset()
+        {
+            report = new KeyboardReport();
+            return true;
+        }
+
         public bool setButtonDown(string key)
         {
             if (Enum.IsDefined(typeof(KeyboardKey), key.ToUpper()))
@@ -269,6 +276,10 @@ namespace WiiTUIO.Output.Handlers
                     return KeyboardKey.Y;
                 case VirtualKeyCode.VK_Z:
                     return KeyboardKey.Z;
+                case VirtualKeyCode.OEM_PERIOD:
+                    return KeyboardKey.Dot;
+                case VirtualKeyCode.OEM_COMMA:
+                    return KeyboardKey.Comma;
                 case VirtualKeyCode.LWIN:
                     return KeyboardModifier.LWin;
                 case VirtualKeyCode.RWIN:
